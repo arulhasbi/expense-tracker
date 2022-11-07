@@ -32,7 +32,7 @@ export const Budget = ({ id, name, remaining }) => {
           />
           <button
             type="button"
-            className="border border-slate-600 w-[80px] rounded-md hover:cursor-pointer button-15"
+            className="border border-slate-600 w-[100px] rounded-md hover:cursor-pointer button-54"
             onClick={() => handleUpdate()}
           >
             Update
