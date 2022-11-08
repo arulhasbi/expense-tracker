@@ -10,8 +10,9 @@ Will update after the project is done.
     <th> </th>
   </tr>
   <tr>
-    <td>![Screenshot](ss-1.png)</td>
+    <td></td>
     <td>![Screenshot](ss-2.png)</td>
   </tr>
 </table>
+![Screenshot](ss-1.png)
   
