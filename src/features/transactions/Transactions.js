@@ -1,25 +1,41 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectAllBudgets } from "../budgets/budgetsSlice";
+import { addTransaction } from "./transactionsSlice";
+import { reduceRemaining } from "../budgets/budgetsSlice";
 import "./Transactions.css";
 
 export const Transactions = () => {
   const state = useSelector(selectAllBudgets);
+  const dispatch = useDispatch();
 
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
 
   const handleSubmit = () => {
-    console.log(description);
-    console.log(amount);
-    console.log(category);
+    dispatch(
+      addTransaction({
+        category: {
+          id: JSON.parse(category).id,
+          name: JSON.parse(category).name,
+        },
+        description,
+        amount,
+      })
+    );
+    dispatch(
+      reduceRemaining({
+        id: JSON.parse(category).id,
+        amount,
+      })
+    );
   };
 
   useEffect(() => {
     if (state.budgets.length !== 0) {
-      setCategory(state.budgets[0].id);
+      setCategory(JSON.stringify(state.budgets[0]));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -40,11 +56,11 @@ export const Transactions = () => {
               id="category"
               className="border rounded-md p-1"
               value={state.category}
-              onChange={(target) => setCategory(target.value)}
+              onChange={({ target }) => setCategory(target.value)}
             >
               {state.budgets.length !== 0 &&
                 state.budgets.map((budget) => (
-                  <option key={budget.id} value={budget.id}>
+                  <option key={budget.id} value={JSON.stringify(budget)}>
                     {budget.name}
                   </option>
                 ))}

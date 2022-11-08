@@ -35,7 +35,7 @@ const option = {
     },
     reduceRemaining(state, action) {
       const budget = state.find((budget) => budget.id === action.payload.id);
-      budget.remainig -= action.payload;
+      budget.remaining -= action.payload.amount;
     },
   },
 };
