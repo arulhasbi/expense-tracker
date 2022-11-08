@@ -24,9 +24,10 @@ Problem 2:
 I passed `state` and `dispatch` references through props `<App state={store.getState()} dispatch={store.dispatch} />` which adds unneeded complexity and might be difficult to keep track of errors as the number of components increases.
 
 
-**Therefore**, in this expenses-tracker project, I learned two useful Redux libraries which are react-redux and redux-toolkit. With these tools, I had better:
+Therefore, in this expenses-tracker project, I learned two useful Redux libraries which are react-redux and redux-toolkit. With these tools, I had better:
 
 **Accessibility**: The `store` is more accessible by all of the components whithin the application. Then, avoid props-drilling.
+
 **Rendering**: Subscribing inidivdual components to the specific pieces of the application for optimized-rendering. So, no need re-render the whole thing.
 
 I know all of these are still at the surface but I hope that I have a better understanding now about react state-management and see you guys in the next react project. Peace!.
