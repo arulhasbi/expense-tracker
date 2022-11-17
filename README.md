@@ -34,7 +34,7 @@ I know all of these are still at the surface but I hope that I have a better und
  
 ### Project Screen Shots
 
-![Screenshot](ss-1.png)
+![Screenshot](ss.png)
 
 ### Dependencies
 
